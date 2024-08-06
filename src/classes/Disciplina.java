@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Disciplina {
 	private String nome;
-	private Date data;
+	private Date horario;
     private String sala;
     private Aluno[] alunos;
     private String professor;
@@ -12,12 +12,14 @@ public class Disciplina {
 
     public Disciplina(String nome, Date data, String sala, Aluno[] alunos, String professor, float notas[]) {
         this.nome = nome;
-    	this.data = data;
+    	this.horario = data;
         this.sala = sala;
         this.alunos = alunos;
         this.professor = professor;
         this.notas = notas;
     }
+
+    //--------------------------------
 
     public String getNome() {
         return nome;
@@ -26,22 +28,28 @@ public class Disciplina {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    //--
     
-    public Date getData() {
-        return data;
+    public Date getHorario() {
+        return horario;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setHorario(Date horario) {
+        this.horario = horario;
     }
+
+    //--
     
     public String getSala() {
     	return sala;
     }
     
-    public void setSata(String sala) {
+    public void setSala(String sala) {
     	this.sala = sala;
     }
+
+    //--
     
     public Aluno[] getAlunos() {
     	return alunos;
@@ -50,6 +58,8 @@ public class Disciplina {
     public void setAlunos(Aluno[] alunos) {
     	this.alunos = alunos;
     }
+
+    //--
     
     public String getProfessor() {
     	return professor;
@@ -58,6 +68,8 @@ public class Disciplina {
     public void setProfessor(String professor) {
     	this.professor = professor;
     }
+
+    //--
     
     public float[] getNotas() {
     	return notas;
@@ -66,6 +78,8 @@ public class Disciplina {
     public void setNotas(float[] notas) {
     	this.notas = notas;
     }
+
+    //--------------------------------
     
     public void criarNota() {
     }

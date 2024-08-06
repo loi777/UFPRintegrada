@@ -13,6 +13,8 @@ public class Documento {
         this.email = email;
     }
 
+    //--------------------------------
+
     public String getNome() {
         return nome;
     }
@@ -21,6 +23,8 @@ public class Documento {
         this.nome = nome;
     }
 
+    //--
+
     public String getCpf() {
         return cpf;
     }
@@ -28,6 +32,8 @@ public class Documento {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    //--
     
     public String getRg() {
         return rg;
@@ -36,6 +42,8 @@ public class Documento {
     public void setRg(String rg) {
         this.rg = rg;
     }
+
+    //--
     
     public String getEmail() {
         return email;
@@ -44,6 +52,8 @@ public class Documento {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    //--------------------------------
     
     public void enviarEmail(String email, String msg) {
     	System.out.println("Enviando email para: " + email);

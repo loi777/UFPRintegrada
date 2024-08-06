@@ -105,9 +105,13 @@ public class Controlador extends JFrame {
 
         Aluno[] alunos = {aluno1, aluno2};
 
+        //--
+
         float[] notas1 = {7.5f, 8.0f};
         float[] notas2 = {8.5f, 9.6f};
         float[] notas3 = {7.1f, 8.5f};
+
+        //--
 
         Disciplina disciplina1 = new Disciplina("Circuitos Digitais", new Date(), "Sala 101", alunos, "Prof. Carlos Souza", notas1);
         Disciplina disciplina2 = new Disciplina("Software Básico", new Date(), "Sala 102", alunos, "Prof. Mario Souza", notas2);
@@ -116,6 +120,19 @@ public class Controlador extends JFrame {
         Disciplinas disciplinas = new Disciplinas(new Disciplina[]{disciplina1, disciplina2, disciplina3});
         aluno1.setMatriculas(disciplinas);
         aluno2.setMatriculas(disciplinas);
+
+        //--
+
+        String[] campus = {"Historico", "Politecnico", "Botanico", "Matinhos"};
+        // uma pequena lista dos campus da UFPR
+        String[][] prediosPolitecnico = {{}, {"PA", "DINF", "CT", "PC"}, {}, {}};
+        // cada campus contem uma lista de predios(Apenas do politecnico esta preenchido)
+        String[] mapas = {"", "politecnico.png", "", ""};
+        // Caminho para os arquivos de imagem, apenas politecnico esta presente
+
+        Mapa _map = new Mapa(campus, prediosPolitecnico, disciplinas, mapas);
+
+        //--
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override

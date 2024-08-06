@@ -6,6 +6,8 @@ public class Ensalamento {
 	public Ensalamento(Disciplinas cursos) {
         this.cursos = cursos;
     }
+
+    //--------------------------------
 	
 	public Disciplinas getCursos() {
         return cursos;
@@ -14,6 +16,8 @@ public class Ensalamento {
     public void setCursos(Disciplinas cursos) {
         this.cursos = cursos;
     }
+
+    //--------------------------------
     
     public void acessarDisciplina() {
     	System.out.println("Acessar disciplina");
@@ -21,5 +25,10 @@ public class Ensalamento {
     
     public void getMateriasProximas() {
     	System.out.println("Get materias proximas");
+    }
+
+    public void filtrarMaterias(Disciplinas M) {
+        //  Recebido uma lista de disciplinas M
+        //  remove disciplinas desse objeto de acordo com aquelas encontradas em M
     }
 }

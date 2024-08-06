@@ -15,6 +15,8 @@ public class Aluno {
         this.matriculas = matriculas;
     }
 
+    //--------------------------------
+
     public String getNome() {
         return nome;
     }
@@ -23,6 +25,8 @@ public class Aluno {
         this.nome = nome;
     }
 
+    //--
+
     public String getGrr() {
         return grr;
     }
@@ -30,6 +34,8 @@ public class Aluno {
     public void setGrr(String grr) {
         this.grr = grr;
     }
+
+    //--
     
     public Documento getHistoricoEsclr() {
         return historicoEsclr;
@@ -38,6 +44,8 @@ public class Aluno {
     public void setHistoricoEsclr(Documento historicoEsclr) {
         this.historicoEsclr = historicoEsclr;
     }
+
+    //--
     
     public float getIra() {
         return ira;
@@ -46,6 +54,8 @@ public class Aluno {
     public void setIra(float ira) {
         this.ira = ira;
     }
+
+    //--
     
     public Disciplinas getMatriculas() {
         return matriculas;

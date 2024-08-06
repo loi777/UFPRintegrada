@@ -6,6 +6,8 @@ public class Disciplinas {
 	public Disciplinas(Disciplina[] disciplinas) {
         this.disciplinas = disciplinas;
     }
+
+    //--------------------------------
 	
 	public Disciplina[] getDisciplinas() {
         return disciplinas;
@@ -14,6 +16,8 @@ public class Disciplinas {
     public void setDisciplinas(Disciplina[] disciplinas) {
         this.disciplinas = disciplinas;
     }
+
+    //--------------------------------
     
     public Disciplina getDisciplinaPorNome(Disciplinas disciplinas, String nome) {
     	for (int i = 0; i < disciplinas.getDisciplinas().length; i++) {

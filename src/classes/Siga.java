@@ -8,6 +8,8 @@ public class Siga {
         this.alunos = alunos;
         this.professores = professores;
     }
+
+    //--------------------------------
 	
 	public Aluno[] getAlunos() {
         return alunos;
@@ -16,6 +18,8 @@ public class Siga {
     public void setAlunos(Aluno[] alunos) {
         this.alunos = alunos;
     }
+
+    //--
     
     public Professor[] getProfessores() {
     	return professores;
