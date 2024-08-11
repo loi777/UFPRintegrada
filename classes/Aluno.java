@@ -1,28 +1,22 @@
 package classes;
 
 public class Aluno {
-    private String nome;
     private String grr;
-    private Documento historicoEsclr;
+    private Documento informacoes;
     private float ira;
     private Disciplinas matriculas;
 
-    public Aluno(String nome, String grr, Documento historicoEsclr, float ira, Disciplinas matriculas) {
-        this.nome = nome;
+    public Aluno(String grr, Documento informacoes, float ira, Disciplinas matriculas) {
         this.grr = grr;
-        this.historicoEsclr = historicoEsclr;
+        this.informacoes = informacoes;
         this.ira = ira;
         this.matriculas = matriculas;
     }
 
     //--------------------------------
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Documento getInfo() {
+        return informacoes;
     }
 
     //--
@@ -33,16 +27,6 @@ public class Aluno {
 
     public void setGrr(String grr) {
         this.grr = grr;
-    }
-
-    //--
-    
-    public Documento getHistoricoEsclr() {
-        return historicoEsclr;
-    }
-
-    public void setHistoricoEsclr(Documento historicoEsclr) {
-        this.historicoEsclr = historicoEsclr;
     }
 
     //--

@@ -1,6 +1,4 @@
-package classes;
-
-import org.apache.commons.lang3.ArrayUtils; // BLAME::LUIZ
+package classes;    
 
 public class Disciplinas {
 	private Disciplina[] disciplinas;
@@ -27,7 +25,7 @@ public class Disciplinas {
             // first find M inside disciplinas
             if (D.getNome() == disciplinas[i].getNome()) {
                 // found M inside disciplinas, proceed to remove
-                disciplinas = ArrayUtils.remove(disciplinas, disciplinas[i]);
+                //disciplinas = ArrayUtils.remove(disciplinas, disciplinas[i]);
                 return;
             }
         }
