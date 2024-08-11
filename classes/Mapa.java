@@ -57,9 +57,9 @@ public class Mapa {
     
     public void filtrarMaterias(Disciplinas M) {
     	System.out.println("Filtrando cursos do mapa interativo...");
-        
+
         //--
 
-        this.ensalamento.filtrarMaterias(M);
+        this.ensalamento.getCursos().filtrarMaterias(M);
     }
 }

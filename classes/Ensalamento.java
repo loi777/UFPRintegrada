@@ -26,9 +26,4 @@ public class Ensalamento {
     public void getMateriasProximas() {
     	System.out.println("Get materias proximas");
     }
-
-    public void filtrarMaterias(Disciplinas M) {
-        //  Recebido uma lista de disciplinas M
-        //  remove disciplinas desse objeto de acordo com aquelas encontradas em M
-    }
 }
