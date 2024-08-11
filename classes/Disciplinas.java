@@ -1,31 +1,43 @@
 package classes;    
 
+import java.lang.Object;    
+import java.util.ArrayList;
+
 public class Disciplinas {
-	private Disciplina[] disciplinas;
+	private ArrayList<Disciplina> disciplinas;
 	
 	public Disciplinas(Disciplina[] disciplinas) {
-        this.disciplinas = disciplinas;
-    }
+        this.disciplinas = new ArrayList<Disciplina>();
+
+        for (int i = 0; i < disciplinas.length; i++) {
+            this.disciplinas.add(disciplinas[i]);
+        }
+    }   
 
     //--------------------------------
 	
-	public Disciplina[] getDisciplinas() {
+	public ArrayList<Disciplina> getDisciplinas() {
         return disciplinas;
     }
 
     public void setDisciplinas(Disciplina[] disciplinas) {
-        this.disciplinas = disciplinas;
+        for (int i = 0; i < disciplinas.length; i++) {
+            this.disciplinas.add(disciplinas[i]);
+        }
     }
 
     //--------------------------------
 
     // BLAME::LUIZ
+    // Remove one disciplina from this class
     public void removeDisciplina(Disciplina D) {
-        for (int i = 0; i < disciplinas.length; i++) {
-            // first find M inside disciplinas
-            if (D.getNome() == disciplinas[i].getNome()) {
-                // found M inside disciplinas, proceed to remove
-                //disciplinas = ArrayUtils.remove(disciplinas, disciplinas[i]);
+        for (int i = 0; i < disciplinas.size(); i++) {
+            // first find D inside disciplinas
+            if (D.getNome() == disciplinas.get(i).getNome()) {
+                // found D in index i, proceed to remove
+                
+                disciplinas.remove(i);
+
                 return;
             }
         }
@@ -33,10 +45,12 @@ public class Disciplinas {
 
     //--------------------------------
     
-    public Disciplina getDisciplinaPorNome(Disciplinas disciplinas, String nome) {
-    	for (int i = 0; i < disciplinas.getDisciplinas().length; i++) {
-            if(disciplinas.getDisciplinas()[i].getNome() == nome) {
-            	return disciplinas.getDisciplinas()[i];
+    // returns a disciplina found that matches the string nome
+    // if none returns null
+    public Disciplina getDisciplinaPorNome(String nome) {
+    	for (int i = 0; i < disciplinas.size(); i++) {
+            if(disciplinas.get(i).getNome() == nome) {
+            	return disciplinas.get(i);
             }
         }
 		return null;
@@ -47,11 +61,16 @@ public class Disciplinas {
     	return d;
     }
 
-    // BLAME::LUIZ
-    public void filtrarMaterias(Disciplinas M) {
-        // see if there is any M.disciplinas
-        for (int i = 0; i < M.getDisciplinas().length; i++) {
+    //--------------------------------
 
+    // BLAME::LUIZ
+    // removes all disciplinas inside M from this class
+    public void filtrarMaterias(Disciplinas M) {
+        int lSize = M.getDisciplinas().size();
+        
+        // Go through all disciplines and remove them if found
+        for (int i = 0; i < lSize; i++) {
+            removeDisciplina(M.getDisciplinas().get(i));    
         }
     }
 }

@@ -69,9 +69,9 @@ class IOHUD extends JFrame {
                 if (n == 0) {
                     // código para o caso de uso de lançar notas
                 } else if (n == 1) {
-                    String[] lista = new String[disciplinas.getDisciplinas().length];
-                    for (int i = 0; i < disciplinas.getDisciplinas().length; i++) {
-                        lista[i] = disciplinas.getDisciplinas()[i].getNome();
+                    String[] lista = new String[disciplinas.getDisciplinas().size()];
+                    for (int i = 0; i < disciplinas.getDisciplinas().size(); i++) { 
+                        lista[i] = disciplinas.getDisciplinas().get(i).getNome();
                     }
 
                     String selecionada = (String) JOptionPane.showInputDialog(
@@ -92,7 +92,7 @@ class IOHUD extends JFrame {
                                 JOptionPane.PLAIN_MESSAGE);
                         
                         if (mensagem != null && !mensagem.trim().isEmpty()) {
-                            Disciplina disciplina = disciplinas.getDisciplinaPorNome(disciplinas, selecionada);
+                            Disciplina disciplina = disciplinas.getDisciplinaPorNome(selecionada);
                             disciplina.mandarNotificacao(mensagem, disciplina);
                             JOptionPane.showMessageDialog(null, "Notificação enviada para a disciplina: " + selecionada);
                         } else {
@@ -120,13 +120,13 @@ public class Controlador {
     public static void main(String[] args) {
 
         //==== Criando Professores e Alunos
-        Pessoa doc1 = new Pessoa    ("Andrey Ricardo Pimentel", "103.456.465-00", "PR-10.332.278", "andrey@exemplo.com");
-        Pessoa doc2 = new Pessoa("João Silva", "123.456.789-00", "MG-12.345.678", "joao@exemplo.com");
-        Pessoa doc = new Pessoa("Maria Oliveira", "987.654.321-00", "SP-87.654.321", "maria@exemplo.com");
+        Pessoa pes1 = new Pessoa("Andrey Ricardo Pimentel", "103.456.465-00", "PR-10.332.278", "andrey@exemplo.com");
+        Pessoa pes2 = new Pessoa("João Silva", "123.456.789-00", "MG-12.345.678", "joao@exemplo.com");
+        Pessoa pes3 = new Pessoa("Maria Oliveira", "987.654.321-00", "SP-87.654.321", "maria@exemplo.com");
 
-        Professor prof1 = new Professor(doc1);
-        Aluno aluno1 = new Aluno("GRR20201234", doc1, 8.5f, null);
-        Aluno aluno2 = new Aluno("GRR20205678", doc2, 9.0f, null);
+        Professor prof1 = new Professor(pes1);
+        Aluno aluno1 = new Aluno("GRR20201234", pes2, 8.5f, null);
+        Aluno aluno2 = new Aluno("GRR20205678", pes3, 9.0f, null);
 
         Aluno[] Lalunos = {aluno1, aluno2};
         Aluno[] LalunosVazia = {};
@@ -165,11 +165,10 @@ public class Controlador {
         // Caminho para os arquivos de imagem, apenas politecnico esta presente
 
         Mapa _map = new Mapa(campus, prediosPolitecnico, ensalamentoCompleto, mapas);
-        _map.showMap();
 
         //==== INICIANDO IO CASOS DE USOS
 
-        //IOHUD useCaseHud = new IOHUD(disciplinasAlunosExemplo);
-
+        IOHUD useCaseHud = new IOHUD(disciplinasAlunosExemplo);
+        useCaseHud.setVisible(true);
     }
 }
