@@ -16,7 +16,7 @@ clean : removeClasses removeClassesSubfolders
 #--
 
 CLASSES :
-	@javac Controlador.javas
+	@javac Controlador.java
 
 
 #--
