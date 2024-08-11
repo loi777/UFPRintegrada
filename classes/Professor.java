@@ -1,9 +1,9 @@
 package classes;
 
 public class Professor {
-    private Documento informacoes;
+    private Pessoa pessoaInfo;
 
-    public Professor(Documento informacoes) {
-        this.informacoes = informacoes;
+    public Professor(Pessoa pessoaInfo) {
+        this.pessoaInfo = pessoaInfo;
     }
 }

@@ -2,21 +2,21 @@ package classes;
 
 public class Aluno {
     private String grr;
-    private Documento informacoes;
+    private Pessoa pessoaInfo;
     private float ira;
     private Disciplinas matriculas;
 
-    public Aluno(String grr, Documento informacoes, float ira, Disciplinas matriculas) {
+    public Aluno(String grr, Pessoa pessoaInfo, float ira, Disciplinas matriculas) {
         this.grr = grr;
-        this.informacoes = informacoes;
+        this.pessoaInfo = pessoaInfo;
         this.ira = ira;
         this.matriculas = matriculas;
     }
 
     //--------------------------------
 
-    public Documento getInfo() {
-        return informacoes;
+    public Pessoa getInfo() {
+        return pessoaInfo;
     }
 
     //--

@@ -1,5 +1,17 @@
 package classes;
 
+import java.awt.Image;                  // Image manip lib
+import java.awt.image.BufferedImage;    // Image manip lib
+import java.io.File;                    // Image manip lib
+import java.io.IOException;             // Image manip lib
+import javax.swing.*;                   // Image manip lib
+import java.awt.*;                      // Image manip lib
+import java.awt.event.ActionEvent;      // Image manip lib
+import java.awt.event.ActionListener;   // Image manip lib
+
+
+import javax.imageio.*;   // Image manip lib
+
 public class Mapa {
 	private String[] campus;            // an array of strings with each campus
 	private String[][] predios;         // each campus has a number of different buildings
@@ -61,5 +73,24 @@ public class Mapa {
         //--
 
         this.ensalamento.getCursos().filtrarMaterias(M);
+    }
+
+    public void showMap() {
+        try {
+            BufferedImage picture = ImageIO.read(new File("./classes/ImageSource/politecnico.jpg"));
+
+            JLabel picLabel = new JLabel(new ImageIcon(picture));
+
+            JPanel jPanel = new JPanel();
+            jPanel.add(picLabel);
+            
+            JFrame f = new JFrame();
+            f.setSize(new Dimension(picture.getWidth(), picture.getHeight()));
+            f.add(jPanel);
+            f.setVisible(true);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

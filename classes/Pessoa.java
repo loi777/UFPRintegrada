@@ -1,12 +1,12 @@
 package classes;
 
-public class Documento {
+public class Pessoa {
 	private String nome;
     private String cpf;
     private String rg;
     private String email;
     
-    public Documento(String nome, String cpf, String rg, String email) {
+    public Pessoa(String nome, String cpf, String rg, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;

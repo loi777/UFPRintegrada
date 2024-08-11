@@ -87,7 +87,7 @@ public class Disciplina {
     public void mandarNotificacao(String msg, Disciplina disciplina) {
     	Aluno[] alunos = disciplina.getAlunos();
         for (Aluno aluno : alunos) {
-            Documento documento = aluno.getInfo();
+            Pessoa documento = aluno.getInfo();
             String email = documento.getEmail();
             documento.enviarEmail(email, msg);
         }
