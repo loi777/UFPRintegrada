@@ -23,7 +23,9 @@ public class Ensalamento {
     	System.out.println("Acessar disciplina");
     }
     
-    public void getMateriasProximas() {
+    public Disciplinas getMateriasProximas() {
     	System.out.println("Get materias proximas");
+
+        return void;
     }
 }

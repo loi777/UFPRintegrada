@@ -18,7 +18,7 @@ import classes.Siga;
 
 
 class IOHUD extends JFrame {
-    public IOHUD(Disciplinas disciplinas) {
+    public IOHUD(Disciplinas disciplinas, Mapa _map) {
         setTitle("UFPR integrada");
         setSize(500, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,8 +48,20 @@ class IOHUD extends JFrame {
                         null,
                         options,
                         options[0]);
-                if (n == 0) {
-                    // código para o caso de uso de encontrar sala
+
+                switch(n) {
+                    case(0):
+                        // pergunta qual caso de uso do professor quer
+                        options = {"Lançar notas", "Enviar notificação"};
+                        n = JOptionPane.showOptionDialog(null,
+                            "Escolha uma opção:",
+                            "",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            options,
+                            options[0]);
+                    break;
                 }
             }
         });
@@ -57,6 +69,17 @@ class IOHUD extends JFrame {
         professorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String selecionada;
+                Disciplina disciplina;
+                String dados;
+
+                // obtem as disciplinas do professor
+                String[] lista = new String[disciplinas.getDisciplinas().size()];
+                for (int i = 0; i < disciplinas.getDisciplinas().size(); i++) { 
+                    lista[i] = disciplinas.getDisciplinas().get(i).getNome();
+                }
+
+                // pergunta qual caso de uso do professor quer
                 Object[] options = {"Lançar notas", "Enviar notificação"};
                 int n = JOptionPane.showOptionDialog(null,
                         "Escolha uma opção:",
@@ -66,15 +89,58 @@ class IOHUD extends JFrame {
                         null,
                         options,
                         options[0]);
-                if (n == 0) {
-                    // código para o caso de uso de lançar notas
-                } else if (n == 1) {
-                    String[] lista = new String[disciplinas.getDisciplinas().size()];
-                    for (int i = 0; i < disciplinas.getDisciplinas().size(); i++) { 
-                        lista[i] = disciplinas.getDisciplinas().get(i).getNome();
+
+                //==== CASOS DE USO
+                switch(n) {
+                    case(0):
+                    // pergunta qual materia lancar a nota
+                    selecionada = (String) JOptionPane.showInputDialog(
+                        null,
+                        "Escolha a disciplina:",
+                        "Selecionar Disciplina",
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        lista,
+                        lista[0]);
+
+                    // se saiu sem selecionar saia do caso de uso
+                    if (selecionada == null) {
+                        break;
+                    }
+                    disciplina = disciplinas.getDisciplinaPorNome(selecionada);
+
+                    // mencionando limitacao do caso de uso
+                    int qtdNotas = disciplina.getAlunos().length;
+                    float[] notasAdicionar = new float[qtdNotas];
+                    JOptionPane.showMessageDialog(null, "Sem arquivo de nota, adicione nota por nota");
+
+                    // por fim, inserir nota por nota
+                    for(int i = 0; i < qtdNotas; i++) {
+                        dados = JOptionPane.showInputDialog(
+                            null,
+                            "Nota [" + i + "]: ",
+                            "Salvar",
+                            JOptionPane.PLAIN_MESSAGE);
+                        notasAdicionar[i] = Float.parseFloat(dados  );
+                    }
+                    disciplina.criarNota(notasAdicionar);
+
+                    JOptionPane.showMessageDialog(null, qtdNotas + " Notas adicionadas na materia: " + selecionada);
+
+                    for(int i = 0; i < disciplina.getNotas().size(); i++) {
+                        for(int j = 0; j < qtdNotas; j++) {
+                            System.out.print("   ["+j+"] > " + disciplina.getNotas().get(i)[j] );
+                        }
+                        System.out.println();
                     }
 
-                    String selecionada = (String) JOptionPane.showInputDialog(
+                    break;
+
+                    //==== ==== ==== ====
+
+                    case(1):
+                        // pergunta qual materia deve enviar email
+                        selecionada = (String) JOptionPane.showInputDialog(
                             null,
                             "Escolha a disciplina:",
                             "Selecionar Disciplina",
@@ -83,22 +149,30 @@ class IOHUD extends JFrame {
                             lista,
                             lista[0]);
 
-                    if (selecionada != null) {
-                        // solicitando a mensagem do usuário
-                        String mensagem = JOptionPane.showInputDialog(
+                        // se saiu sem selecionar saia do caso de uso
+                        if (selecionada == null) {
+                            break;
+                        }
+                        disciplina = disciplinas.getDisciplinaPorNome(selecionada);
+
+                        // pergunta qual mensagem deseja enviar
+                        dados = JOptionPane.showInputDialog(
                                 null,
                                 "Digite a mensagem a ser enviada:",
                                 "Enviar Notificação",
                                 JOptionPane.PLAIN_MESSAGE);
                         
-                        if (mensagem != null && !mensagem.trim().isEmpty()) {
-                            Disciplina disciplina = disciplinas.getDisciplinaPorNome(selecionada);
-                            disciplina.mandarNotificacao(mensagem, disciplina);
-                            JOptionPane.showMessageDialog(null, "Notificação enviada para a disciplina: " + selecionada);
-                        } else {
+                        // se saiu sem dar resposta saia do caso de uso
+                        if (dados == null || dados.trim().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Nenhuma mensagem foi inserida.", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
                         }
-                    }
+                        
+                        // por fim, envia o email
+                        disciplina.mandarNotificacao(dados, disciplina);
+                        JOptionPane.showMessageDialog(null, "Notificação enviada para a disciplina: " + selecionada);
+                        
+                    break;
                 }
             }
         });
@@ -168,7 +242,7 @@ public class Controlador {
 
         //==== INICIANDO IO CASOS DE USOS
 
-        IOHUD useCaseHud = new IOHUD(disciplinasAlunosExemplo);
+        IOHUD useCaseHud = new IOHUD(disciplinasAlunosExemplo, _map);
         useCaseHud.setVisible(true);
     }
 }

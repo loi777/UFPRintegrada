@@ -1,6 +1,8 @@
 package classes;
 
 import java.util.Date;
+import java.util.ArrayList;
+
 
 public class Disciplina {
 	private String nome;
@@ -18,9 +20,9 @@ public class Disciplina {
         this.professor = professor;
 
         // seta a primeira sequencia de notas, caso tenha
-        this.notas = new ArrayList<float[]>;
+        this.notas = new ArrayList<float[]>();
         if (notas.length > 0) {
-            notas.add(notas);
+            this.notas.add(notas);
         }
     }
 
@@ -82,18 +84,21 @@ public class Disciplina {
 
     // add a sequence of grades to the discipline
     public void criarNota(float[] notas) {
-        notas.add(notas);
+        this.notas.add(notas);
     }
 
     // remove the last sequence of grades added to the discipline
-    public void removerNota(float[] notas) {
-        notas.remove(notas.size());
+    // FIFO
+    public void removerNota() {
+        this.notas.remove(this.notas.size());
     }
 
     //--------------------------------
     
+    // send through email a message to all students
     public void mandarNotificacao(String msg, Disciplina disciplina) {
     	Aluno[] alunos = disciplina.getAlunos();
+
         for (Aluno aluno : alunos) {
             Pessoa documento = aluno.getInfo();
             String email = documento.getEmail();

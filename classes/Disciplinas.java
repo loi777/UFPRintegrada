@@ -28,8 +28,7 @@ public class Disciplinas {
 
     //--------------------------------
 
-    // BLAME::LUIZ
-    // Remove one disciplina from this class
+    // Remove one discipline from this class
     public void removeDisciplina(Disciplina D) {
         for (int i = 0; i < disciplinas.size(); i++) {
             // first find D inside disciplinas
