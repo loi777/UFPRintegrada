@@ -9,8 +9,9 @@ import java.awt.*;                      // Image manip lib
 import java.awt.event.ActionEvent;      // Image manip lib
 import java.awt.event.ActionListener;   // Image manip lib
 
-
 import javax.imageio.*;   // Image manip lib
+
+
 
 public class Mapa {
 	private String[] campus;            // an array of strings with each campus

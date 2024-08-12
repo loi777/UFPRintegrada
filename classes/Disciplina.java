@@ -8,15 +8,20 @@ public class Disciplina {
     private String sala;
     private Aluno[] alunos;
     private String professor;
-    private float[] notas;
+    private ArrayList<float[]> notas;
 
-    public Disciplina(String nome, Date data, String sala, Aluno[] alunos, String professor, float notas[]) {
+    public Disciplina(String nome, Date data, String sala, Aluno[] alunos, String professor, float[] notas) {
         this.nome = nome;
     	this.horario = data;
         this.sala = sala;
         this.alunos = alunos;
         this.professor = professor;
-        this.notas = notas;
+
+        // seta a primeira sequencia de notas, caso tenha
+        this.notas = new ArrayList<float[]>;
+        if (notas.length > 0) {
+            notas.add(notas);
+        }
     }
 
     //--------------------------------
@@ -71,18 +76,21 @@ public class Disciplina {
 
     //--
     
-    public float[] getNotas() {
+    public ArrayList<float[]> getNotas() {
     	return notas;
     }
-    
-    public void setNotas(float[] notas) {
-    	this.notas = notas;
+
+    // add a sequence of grades to the discipline
+    public void criarNota(float[] notas) {
+        notas.add(notas);
+    }
+
+    // remove the last sequence of grades added to the discipline
+    public void removerNota(float[] notas) {
+        notas.remove(notas.size());
     }
 
     //--------------------------------
-    
-    public void criarNota() {
-    }
     
     public void mandarNotificacao(String msg, Disciplina disciplina) {
     	Aluno[] alunos = disciplina.getAlunos();
