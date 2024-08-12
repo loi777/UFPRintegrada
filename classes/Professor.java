@@ -6,4 +6,6 @@ public class Professor {
     public Professor(Pessoa pessoaInfo) {
         this.pessoaInfo = pessoaInfo;
     }
+
+    //----------------------------------
 }

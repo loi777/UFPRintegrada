@@ -9,10 +9,10 @@ public class Disciplina {
 	private Date horario;
     private String sala;
     private Aluno[] alunos;
-    private String professor;
+    private Professor professor;
     private ArrayList<float[]> notas;
 
-    public Disciplina(String nome, Date data, String sala, Aluno[] alunos, String professor, float[] notas) {
+    public Disciplina(String nome, Date data, String sala, Aluno[] alunos, Professor professor, float[] notas) {
         this.nome = nome;
     	this.horario = data;
         this.sala = sala;
@@ -68,11 +68,11 @@ public class Disciplina {
 
     //--
     
-    public String getProfessor() {
+    public Professor getProfessor() {
     	return professor;
     }
     
-    public void setProfessor(String professor) {
+    public void setProfessor(Professor professor) {
     	this.professor = professor;
     }
 

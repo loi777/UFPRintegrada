@@ -3,9 +3,7 @@ public class RU {
     public String[] almoco;
     public String[] jantar;
 
-    public RU() {
-
-    }
+    public RU() { }
 
     //---------------------------
 }

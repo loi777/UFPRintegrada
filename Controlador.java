@@ -215,11 +215,11 @@ public class Controlador {
 
         //==== Criando Disciplinas e Ensalamento
 
-        Disciplina disciplina1 = new Disciplina("Circuitos Digitais", new Date(), "Sala 101", Lalunos, "Prof. Carlos Souza", notas1);
-        Disciplina disciplina2 = new Disciplina("Software Basico", new Date(), "Sala 102", Lalunos, "Prof. Mario Souza", notas2);
-        Disciplina disciplina3 = new Disciplina("Sistemas Operacionais", new Date(), "Sala 103", Lalunos, "Prof. Jose Souza", notas3);
-        Disciplina disciplina4 = new Disciplina("Redes1", new Date(), "PA7", LalunosVazia, "Prof. Albini", notas4);
-        Disciplina disciplina5 = new Disciplina("Programacao Paralela", new Date(), "Lab11", LalunosVazia, "Prof. Wagner Zola", notas5);
+        Disciplina disciplina1 = new Disciplina("Circuitos Digitais", new Date(), "Sala 101", Lalunos, prof1, notas1);
+        Disciplina disciplina2 = new Disciplina("Software Basico", new Date(), "Sala 102", Lalunos, prof1, notas2);
+        Disciplina disciplina3 = new Disciplina("Sistemas Operacionais", new Date(), "Sala 103", Lalunos, prof1, notas3);
+        Disciplina disciplina4 = new Disciplina("Redes1", new Date(), "PA7", LalunosVazia, prof1, notas4);
+        Disciplina disciplina5 = new Disciplina("Programacao Paralela", new Date(), "Lab11", LalunosVazia, prof1, notas5);
 
         Disciplinas disciplinasAlunosExemplo = new Disciplinas(new Disciplina[]{disciplina1, disciplina2, disciplina3});
         Ensalamento ensalamentoCompleto = new Ensalamento(new Disciplinas(new Disciplina[]{disciplina1, disciplina2, disciplina3, disciplina4, disciplina5}));

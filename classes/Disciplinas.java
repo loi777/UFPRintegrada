@@ -12,7 +12,7 @@ public class Disciplinas {
         for (int i = 0; i < disciplinas.length; i++) {
             this.disciplinas.add(disciplinas[i]);
         }
-    }   
+    }
 
     //--------------------------------
 	
