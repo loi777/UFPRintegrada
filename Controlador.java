@@ -51,16 +51,54 @@ class IOHUD extends JFrame {
 
                 switch(n) {
                     case(0):
-                        // pergunta qual caso de uso do professor quer
-                        options = {"Lançar notas", "Enviar notificação"};
+                        // pergunta qual campus o usuario esta
                         n = JOptionPane.showOptionDialog(null,
-                            "Escolha uma opção:",
+                            "Escolha o seu campus:",
+                            "",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            _map.getCampus(),
+                            options[0]);        
+
+                        // campus alem do politecnico nao foram desenvolvidos
+                        if (n != 1) {
+                            JOptionPane.showMessageDialog(null, "Apenas o Politecnico está desenvolvido.", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        }
+
+                        // pergunta qual caso de uso fazer
+                        options = new Object[]{"Mostrar mapa" , "Filtrar com as suas materias"};
+                        n = JOptionPane.showOptionDialog(null,
+                            "Escolha o que fazer:",
                             "",
                             JOptionPane.DEFAULT_OPTION,
                             JOptionPane.QUESTION_MESSAGE,
                             null,
                             options,
                             options[0]);
+
+                        // Aluno quer ver o mapa completo
+                        if (n == 0) {
+                            JOptionPane.showMessageDialog(null, "Abrindo Mapa...");
+                            _map.showMap();
+                            break;
+                        }
+
+                        // pergunta qualcaso de uso fazer
+                        options = new Object[]  {"Mostrar mapa" , "Filtrar com as proximas matérias"};
+                        n = JOptionPane.showOptionDialog(null,
+                            "Escolha o que fazer agora:",
+                            "",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            options,
+                            options[0]);
+
+                        // O mapa sera mostrado de qualquer forma  
+                        JOptionPane.showMessageDialog(null, "Abrindo Mapa...");
+                        _map.showMap();
                     break;
                 }
             }
